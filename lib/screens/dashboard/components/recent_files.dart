@@ -22,7 +22,7 @@ class RecentFiles extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            "Recent Files",
+            "Recent Candidates",
             style: Theme.of(context).textTheme.titleMedium,
           ),
           SizedBox(
@@ -32,22 +32,26 @@ class RecentFiles extends StatelessWidget {
               // minWidth: 600,
               columns: [
                 DataColumn(
-                  label: Text("File Name"),
+                  label: Text("Name"),
                 ),
                 DataColumn(
-                  label: Text("Date"),
+                  label: Text("AppliedPosition"),
                 ),
                 DataColumn(
-                  label: Text("Size"),
+                  label: Text("E-mail"),
                 ),
                 DataColumn(
-                  label: Text("Column1")
-                )
+                  label: Text("Registration Date"),
+                ),
+                DataColumn(
+                  label: Text("Status")),
+                DataColumn(
+                  label: Text("Operation")),
               ],
               rows: List.generate(
                 // demoRecentFiles.length,
                 // (index) => recentFileDataRow(demoRecentFiles[index]),
-                4,
+                6,
                 (index) => recentFileDataRow(demoRecentFiles[index]),
               ),
             ),
@@ -71,13 +75,17 @@ DataRow recentFileDataRow(RecentFile fileInfo) {
             ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: defaultPadding),
-              child: Text(fileInfo.title!),
+              child: Text(fileInfo.applied!),
             ),
           ],
         ),
       ),
+      DataCell(Text(fileInfo.applied!)),
+      DataCell(Text(fileInfo.email!)),
       DataCell(Text(fileInfo.date!)),
-      DataCell(Text(fileInfo.size!)),
+      DataCell(Text(fileInfo.status!)),
+      DataCell(Text(fileInfo.operation!))
+
     ],
   );
 }

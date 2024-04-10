@@ -20,7 +20,8 @@ class DashboardScreen extends StatelessWidget {
             Header(),
             SizedBox(height: defaultPadding),
             Row(
-              crossAxisAlignment: CrossAxisAlignment.start, 
+              crossAxisAlignment: CrossAxisAlignment.start, // Aligns the children in the main axis
+
               children: [
                 Expanded(
                   flex: 5,
