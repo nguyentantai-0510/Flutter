@@ -1,4 +1,4 @@
-import 'package:admin/models/RecentFile.dart';
+import 'package:admin/models/RecentCandidate.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -25,34 +25,36 @@ class RecentFiles extends StatelessWidget {
             "Recent Candidates",
             style: Theme.of(context).textTheme.titleMedium,
           ),
-          SizedBox(
-            width: double.infinity,
-            child: DataTable(
-              columnSpacing: defaultPadding,
-              // minWidth: 600,
-              columns: [
-                DataColumn(
-                  label: Text("Name"),
+          SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            child: SizedBox(
+              width: 900,
+              child: DataTable(
+                columnSpacing: defaultPadding,
+                // minWidth: 600,
+                columns: [
+                  DataColumn(
+                    label: Text("Name"),
+                  ),
+                  DataColumn(
+                    label: Text("AppliedPosition"),
+                  ),
+                  DataColumn(
+                    label: Text("E-mail"),
+                  ),
+                  DataColumn(
+                    label: Text("Registration Date"),
+                  ),
+                  DataColumn(label: Text("Status")),
+                  DataColumn(label: Text("Operation")),
+                ],
+            
+                rows: List.generate(
+                  // demoRecentFiles.length,
+                  // (index) => recentFileDataRow(demoRecentFiles[index]),
+                  6,
+                  (index) => recentFileDataRow(demoRecentFiles[index]),
                 ),
-                DataColumn(
-                  label: Text("AppliedPosition"),
-                ),
-                DataColumn(
-                  label: Text("E-mail"),
-                ),
-                DataColumn(
-                  label: Text("Registration Date"),
-                ),
-                DataColumn(
-                  label: Text("Status")),
-                DataColumn(
-                  label: Text("Operation")),
-              ],
-              rows: List.generate(
-                // demoRecentFiles.length,
-                // (index) => recentFileDataRow(demoRecentFiles[index]),
-                6,
-                (index) => recentFileDataRow(demoRecentFiles[index]),
               ),
             ),
           ),
@@ -85,7 +87,6 @@ DataRow recentFileDataRow(RecentFile fileInfo) {
       DataCell(Text(fileInfo.date!)),
       DataCell(Text(fileInfo.status!)),
       DataCell(Text(fileInfo.operation!))
-
     ],
   );
 }

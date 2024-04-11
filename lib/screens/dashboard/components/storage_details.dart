@@ -1,3 +1,4 @@
+import 'package:admin/screens/dashboard/components/canlendart.dart';
 import 'package:flutter/material.dart';
 
 import '../../../constants.dart';
@@ -28,6 +29,7 @@ class StorageDetails extends StatelessWidget {
             ),
           ),
           SizedBox(height: defaultPadding),
+          calendart(),
           Chart(),
           StorageInfoCard(
             svgSrc: "assets/icons/Documents.svg",

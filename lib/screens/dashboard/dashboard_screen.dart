@@ -1,5 +1,6 @@
 import 'package:admin/responsive.dart';
 import 'package:admin/screens/dashboard/components/my_fields.dart';
+import 'package:admin/screens/dashboard/components/recent_position.dart';
 import 'package:flutter/material.dart';
 
 import '../../constants.dart';
@@ -13,6 +14,7 @@ class DashboardScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: SingleChildScrollView(
+        
         primary: false,
         padding: EdgeInsets.all(defaultPadding),
         child: Column(
@@ -20,7 +22,8 @@ class DashboardScreen extends StatelessWidget {
             Header(),
             SizedBox(height: defaultPadding),
             Row(
-              crossAxisAlignment: CrossAxisAlignment.start, // Aligns the children in the main axis
+              crossAxisAlignment: CrossAxisAlignment
+                  .start, // Aligns the children in the main axis
 
               children: [
                 Expanded(
@@ -30,6 +33,8 @@ class DashboardScreen extends StatelessWidget {
                       MyFiles(),
                       SizedBox(height: defaultPadding),
                       RecentFiles(),
+                      SizedBox(height: defaultPadding),
+                      RecentPositions(),
                       if (Responsive.isMobile(context))
                         SizedBox(height: defaultPadding),
                       if (Responsive.isMobile(context)) StorageDetails(),
