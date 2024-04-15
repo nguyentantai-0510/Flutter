@@ -1,8 +1,9 @@
-import 'package:admin/constants.dart';
-import 'package:admin/screens/mainWelcome/Signup/components/signup_screen.dart';
-import 'package:admin/screens/mainDasboard/main_screen_dasboard.dart';
-import 'package:flutter/material.dart';
 import 'package:admin/components/alreadyAccount.dart';
+import 'package:admin/constants.dart';
+import 'package:admin/screens/dashboard/dashboard_screen.dart';
+import 'package:admin/screens/mainDasboard/main_screen_dasboard.dart';
+import 'package:admin/screens/mainWelcome/Signup/signup_screen.dart';
+import 'package:flutter/material.dart';
 
 class LoginForm extends StatelessWidget {
   const LoginForm({
@@ -45,7 +46,14 @@ class LoginForm extends StatelessWidget {
           const SizedBox(height: defaultPadding),
           ElevatedButton(
             onPressed: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context) => MainScreenDasboard(),),);
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) {
+                    return MainScreen();
+                  },
+                ),
+              );
             },
             child: Text(
               "Login".toUpperCase(),
