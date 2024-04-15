@@ -6,7 +6,7 @@ import 'package:provider/provider.dart';
 
 import 'components/side_menu.dart';
 
-class MainScreen extends StatelessWidget {
+class MainScreenDasboard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
