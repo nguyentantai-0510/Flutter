@@ -2,6 +2,7 @@ import 'package:admin/constants.dart';
 import 'package:admin/user/component/Banner2.dart';
 import 'package:admin/user/component/Banner3.dart';
 import 'package:admin/user/component/Banner4.dart';
+import 'package:admin/user/component/Banner5.dart';
 import 'package:admin/user/component/banner1.dart';
 import 'package:admin/user/component/headerUser.dart';
 import 'package:admin/user/component/landingPage.dart';
@@ -125,8 +126,10 @@ class _MyHomePageSate extends State<HomepageScreen> {
                 padding: EdgeInsets.all(20),
                 color: Colors.grey,
                 child: Banner4()),
-            SizedBox(
-              height: defaultPadding,
+            Container(
+              padding: EdgeInsets.all(20),
+              color: Colors.black,
+              child: Banner5(),
             ),
             // Footer()
           ],
