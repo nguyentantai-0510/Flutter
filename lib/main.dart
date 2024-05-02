@@ -1,8 +1,9 @@
+import 'package:admin/admin/screens/candidate/mainScreen/main_screen.dart';
+import 'package:admin/admin/screens/dashboard/mainScreen/main_screen.dart';
+import 'package:admin/admin/screens/mainWelcome/Welcome/welcome_screen.dart';
 import 'package:admin/constants.dart';
-import 'package:admin/controllers/MenuAppController.dart';
-import 'package:admin/screens/dashboard/dashboard_screen.dart';
-import 'package:admin/screens/mainDasboard/main_screen_dasboard.dart';
-import 'package:admin/screens/mainWelcome/Welcome/welcome_screen.dart';
+import 'package:admin/admin/controllers/MenuAppController.dart';
+import 'package:admin/user/screen/homePage.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -19,22 +20,23 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Admin Panel',
       theme: ThemeData.dark().copyWith(
-        scaffoldBackgroundColor: bgColor,
+        scaffoldBackgroundColor: bgUserColor,
         textTheme: GoogleFonts.poppinsTextTheme(Theme.of(context).textTheme)
             .apply(bodyColor: Colors.white),
         canvasColor: secondaryColor,
       ),
-      home: MultiProvider(
-        providers: [
-          ChangeNotifierProvider(
-            create: (context) => MenuAppController(),
-          ),
-        ],
-        child: MainScreen(),
-      ),
+      routes: {
+        // '/': (_) => WelcomeScreen(),
+        '/': (_) => ChangeNotifierProvider(
+              create: (context) => MenuAppController(),
+              child: MainScreenDasboard(),
+            ),
+        '/candidate': (_) => ChangeNotifierProvider(
+              create: (context) => MenuAppController(),
+              child: MainScreenCandidate(),
+            ),
+        '/homepage': (_) => HomepageScreen(),
+      },
     );
   }
 }
-
-
-
